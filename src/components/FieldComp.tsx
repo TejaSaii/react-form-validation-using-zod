@@ -24,7 +24,7 @@ function FieldComp() {
       setData((prev) => ({ ...prev, [name]: !prev.isAdmin }));
     }
     else if (name === 'percentage') {
-      setData((prev) => ({ ...prev, [name]: Number(value) }))
+      setData((prev) => ({ ...prev, [name]: Number(value) || 0 }))
     }
     else {
       setData((prev) => ({ ...prev, [name]: value }));
@@ -65,7 +65,7 @@ function FieldComp() {
       <Error path='password' />
       <TextField variant='outlined' label='email' name='email' value={email} onChange={handleChange}></TextField>
       <Error path='email' />
-      <TextField variant='outlined' label='Percentage' type="number" name='percentage' value={percentage} onChange={handleChange}></TextField>
+      <TextField variant='outlined' label='Percentage' name='percentage' value={percentage} onChange={handleChange}></TextField>
       <Error path='percentage' />
       <FormControlLabel control={<Checkbox checked={admin} name="isAdmin" onChange={handleChange} size="medium"/>} label='Admin?'></FormControlLabel>
       <Button variant='contained' onClick={handleSubmit}>Submit</Button>
